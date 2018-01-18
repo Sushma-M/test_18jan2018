@@ -3,7 +3,38 @@
     <wm-top-nav name="topnav" content="topnav"></wm-top-nav>
     <wm-content name="content">
         <wm-left-panel columnwidth="2" name="leftpanel" content="leftnav"></wm-left-panel>
-        <wm-page-content columnwidth="8" paddingleft="15" paddingright="15" name="mainContent">
+        <wm-page-content columnwidth="8" name="mainContent" padding="unset 15px">
+            <wm-tabs name="tabs1">
+                <wm-tabpane name="tabpane1" title="restserv">
+                    <wm-composite name="composite1">
+                        <wm-label class="col-md-3 control-label" name="label1" caption="Source"></wm-label>
+                        <wm-container class="col-md-9" name="container1">
+                            <wm-text name="text1"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-composite name="composite2">
+                        <wm-label class="col-md-3 control-label" name="label2" caption="Destination"></wm-label>
+                        <wm-container class="col-md-9" name="container2">
+                            <wm-text name="text2"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-button class="btn-default" caption="Button" type="button" margin="unset 0.5em" name="button1" on-click="Variables.GoogleapisInvoke.invoke()"></wm-button>
+                    <wm-label padding="unset 0.5em" name="label3" caption="bind:Variables.GoogleapisInvoke.dataSet.route.leg.distance.text"></wm-label>
+                    <wm-table name="googleapisTable1" title="" dataset="bind:Variables.GoogleapisInvoke.dataSet" navigation="Basic">
+                        <wm-table-column binding="status" caption="Status" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                        <wm-table-column binding="route.summary" caption="Route Summary" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                        <wm-table-column binding="route.copyrights" caption="Route Copyrights" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                        <wm-table-column binding="route.bounds.southwest.lng" caption="Route.bounds.southwest Lng" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                        <wm-table-column binding="route.bounds.southwest.lat" caption="Route.bounds.southwest Lat" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                        <wm-table-column binding="route.bounds.northeast.lng" caption="Route.bounds.northeast Lng" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                        <wm-table-column binding="route.bounds.northeast.lat" caption="Route.bounds.northeast Lat" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                        <wm-table-column binding="route.overview_polyline.points" caption="Route.overview_polyline Points" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                        <wm-table-column binding="route.leg.start_address" caption="Route.leg Start Address" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                        <wm-table-column binding="route.leg.end_address" caption="Route.leg End Address" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                    </wm-table>
+                </wm-tabpane>
+                <wm-tabpane name="tabpane2" title="dbtables"></wm-tabpane>
+            </wm-tabs>
         </wm-page-content>
         <wm-right-panel columnwidth="2" name="rightpanel" content="rightnav"></wm-right-panel>
     </wm-content>
