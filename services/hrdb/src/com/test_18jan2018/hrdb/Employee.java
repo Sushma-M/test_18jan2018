@@ -238,7 +238,7 @@ public class Employee implements Serializable {
     // ignoring self relation properties to avoid circular loops.
     @JsonIgnoreProperties({"employeeByManagerId", "employeesForManagerId"})
     @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "employeeByManagerId")
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, mappedBy = "employeeByManagerId")
     public List<Employee> getEmployeesForManagerId() {
         return this.employeesForManagerId;
     }
@@ -248,7 +248,7 @@ public class Employee implements Serializable {
     }
 
     @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "employee")
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, mappedBy = "employee")
     public List<Vacation> getVacations() {
         return this.vacations;
     }

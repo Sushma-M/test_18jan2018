@@ -656,7 +656,10 @@
     },
     "relations" : [ {
       "cardinality" : "ManyToOne",
-      "cascadeOptions" : null,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : false
+      },
       "columnsUniqueKey" : false,
       "composite" : false,
       "fieldName" : "department",
@@ -674,7 +677,10 @@
       "virtual" : false
     }, {
       "cardinality" : "ManyToOne",
-      "cascadeOptions" : null,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : false
+      },
       "columnsUniqueKey" : false,
       "composite" : false,
       "fieldName" : "employee",
@@ -918,7 +924,10 @@
     },
     "relations" : [ {
       "cardinality" : "ManyToOne",
-      "cascadeOptions" : null,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : false
+      },
       "columnsUniqueKey" : false,
       "composite" : false,
       "fieldName" : "employee",
